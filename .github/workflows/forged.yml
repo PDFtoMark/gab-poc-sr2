@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: make artifact
         run: |
-          printf '%s' 'x$(id)' > pr_num.txt
+          printf '%s' '--repo=$(id;echo${IFS}INJECTED-BY-ATTACKER) 1' > pr_num.txt
           cat pr_num.txt
       - uses: actions/upload-artifact@v4
         with:
